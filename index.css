@@ -3,40 +3,89 @@ body{
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    background-color: #333;
-    color: #fff;
     display: grid;
     place-items: center;
     font-family: 'Protest Revolution', sans-serif;
+    overflow: hidden;
 }
 
-.container{
+.banner{
+    width: 100vw;
+    position: relative;
+    top: 0;
+    right: 0;
+    height: 30vh;
+    background-color: darkblue;
+}
+
+.alarmConatiner{
     display: flex;
-    justify-content: space-between;
-    align-content: center;
-    gap: 2rem;
-
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 40%;
+    height: 60vh;
+    border: 1px solid #eee;
+    box-shadow: 0 12px 24px rgba(0,0,0,.1);
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    border-radius:20px;
+    padding: 1rem;
 }
 
-.container div{
+.alarmConatiner > *:nth-child(1){
+    margin: 0;
+    width: 100%;
+    border-bottom: 1px solid #d5d2d2;
+}
+
+.alarmConatiner .btns{
+    width: 50%;
+}
+
+.alarmConatiner div{
     flex: 1;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 2rem;
-
+    width: 100%;
 }
 
-.container h1{
+.alarmConatiner h1{
     font-size: 5rem;
 }
 
+.alarmConatiner div div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 button{
-    padding:.6rem 2rem;
     border: none;
     outline: none;
-    color: #fff;
-    background-color: deepskyblue;
-    margin-top: 3rem;
+    color: #000;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    font-size: 2rem;
+    width: 60px;
+    height: 60px;
     cursor: pointer;
+    transition: all .3s ease-in-out;
+}
+
+button.pause{
+    font-size: 5rem;
+    width: 120px;
+    height: 120px;
+}
+
+
+button:hover{
+    background-color: #333;
+    color: #fff;
 }

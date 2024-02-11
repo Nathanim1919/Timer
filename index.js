@@ -1,4 +1,4 @@
-import {resetButton, pauseButton,playButton} from "./modules/dom.js";
+import {resetButton, pauseButton} from "./modules/dom.js";
 import ClockAlarm from "./modules/Alarm.js";
 import ClockTimer from "./modules/ClockTimer.js";
 
@@ -14,5 +14,16 @@ clock.start();
 
 
 resetButton.addEventListener('click', () => clock.reset());
-playButton.addEventListener('click', () => clock.start());
-pauseButton.addEventListener('click', () => clock.pause());
+pauseButton.addEventListener('click', () => {
+    if (clock.playTimer){
+        clock.pause()
+        pauseButton.innerHTML = '<i class="fa-solid fa-play"></i>'
+        pauseButton.classList.add('pause')
+
+    } else {
+        clock.start()
+        pauseButton.innerHTML = ' <i class="fa-solid fa-pause"></i>'
+        pauseButton.classList.remove('pause')
+    }
+
+});
