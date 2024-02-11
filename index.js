@@ -18,7 +18,6 @@ class ClockTimer {
     }
 
     start() {
-
         this.intervalId = setInterval(() => {
             this.second = this.second + 1;
             if (this.second >= 60) {
@@ -32,10 +31,10 @@ class ClockTimer {
                 this.second = 0;
             }
 
-            // Update the display (assuming you have elements with class 'second', 'minute', and 'hour')
-            second.textContent = this.second;
-            minute.textContent = this.minute;
-            hour.textContent = this.hour;
+            second.textContent = this.second < 10? '0'+this.second:this.second;
+            minute.textContent = this.minute < 10? '0'+this.minute:this.minute;
+            hour.textContent =   this.hour < 10? '0'+this.hour: this.hour;
+
         }, 1000);
     }
 
