@@ -1,0 +1,41 @@
+body{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    background-color: #333;
+    color: #fff;
+    display: grid;
+    place-items: center;
+}
+
+.container{
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    gap: 2rem;
+
+}
+
+.container div{
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #13245a;
+    padding: 2rem;
+
+}
+
+.container h1{
+    font-size: 5rem;
+}
+
+button{
+    padding:.6rem 2rem;
+    border: none;
+    outline: none;
+    color: #fff;
+    background-color: deepskyblue;
+    margin-top: 3rem;
+    cursor: pointer;
+}
