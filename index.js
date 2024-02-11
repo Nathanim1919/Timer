@@ -3,9 +3,6 @@ import ClockAlarm from "./modules/Alarm.js";
 import ClockTimer from "./modules/ClockTimer.js";
 
 
-
-
-// Example usage:
 const clock = new ClockTimer();
 const alarm = new ClockAlarm();
 alarm.addAlarm(); // Add an example alarm
@@ -13,7 +10,13 @@ clock.setAlarmInstance(alarm);
 clock.start();
 
 
-resetButton.addEventListener('click', () => clock.reset());
+resetButton.addEventListener('click', () => {
+    clock.reset()
+    pauseButton.innerHTML = '<i class="fa-solid fa-play"></i>'
+    pauseButton.classList.add('pause')
+});
+
+
 pauseButton.addEventListener('click', () => {
     if (clock.playTimer){
         clock.pause()
@@ -25,5 +28,4 @@ pauseButton.addEventListener('click', () => {
         pauseButton.innerHTML = ' <i class="fa-solid fa-pause"></i>'
         pauseButton.classList.remove('pause')
     }
-
 });

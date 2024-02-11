@@ -35,10 +35,8 @@ class ClockTimer {
                     this.second = 0;
                 }
 
-                second.textContent = this.second < 10 ? '0' + this.second : this.second;
-                minute.textContent = this.minute < 10 ? '0' + this.minute : this.minute;
-                hour.textContent = this.hour < 10 ? '0' + this.hour : this.hour;
 
+                this.setValues()
                 // Update the ClockAlarm instance's time values
                 this.alarmInstance.updateTime(this.hour, this.minute, this.second);
 
@@ -46,6 +44,14 @@ class ClockTimer {
                 this.alarmInstance.checkAlarms();
             }, 1000);
     }
+
+
+    setValues(){
+        second.textContent = this.second < 10 ? '0' + this.second : this.second;
+        minute.textContent = this.minute < 10 ? '0' + this.minute : this.minute;
+        hour.textContent = this.hour < 10 ? '0' + this.hour : this.hour;
+    }
+
 
     reset() {
         clearInterval(this.intervalId);
@@ -57,9 +63,7 @@ class ClockTimer {
         this.second = 0;
 
         // Update the display after resetting
-        second.textContent = this.second < 10? '0'+this.second:this.second;
-        minute.textContent = this.minute < 10? '0'+this.minute:this.minute;
-        hour.textContent = this.hour < 10? '0'+this.hour:this.hour;
+        this.setValues()
     }
 }
 
