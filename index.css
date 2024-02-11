@@ -9,6 +9,28 @@ body{
     overflow: hidden;
 }
 
+/*scroll bar style*/
+/* Hide the default scrollbar for webkit browsers */
+::-webkit-scrollbar {
+    width: 4px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+
 .banner{
     width: 100vw;
     position: relative;
@@ -18,7 +40,7 @@ body{
     background-color: darkblue;
 }
 
-.alarmConatiner{
+.alarmContainer{
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -36,17 +58,36 @@ body{
     padding: 1rem;
 }
 
-.alarmConatiner > *:nth-child(1){
+.alarmContainer > *:nth-child(1){
     margin: 0;
     width: 100%;
     border-bottom: 1px solid #d5d2d2;
+    position: relative;
 }
 
-.alarmConatiner .btns{
+.alarmContainer > *:nth-child(1) .copyIcon{
+    position: fixed;
+    right: 2rem;
+    top: 1rem;
+    width: 20px;
+    height: 20px;
+    background-color: #eee;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+    padding: .3rem;
+}
+
+.alarmContainer > *:nth-child(1) div.copied{
+    color: #c4c0c0;
+}
+
+.alarmContainer .btns{
     width: 50%;
 }
 
-.alarmConatiner div{
+.alarmContainer div{
     flex: 1;
     display: flex;
     justify-content: space-between;
@@ -54,11 +95,11 @@ body{
     width: 100%;
 }
 
-.alarmConatiner h1{
+.alarmContainer h1{
     font-size: 5rem;
 }
 
-.alarmConatiner div div{
+.alarmContainer div div{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -88,4 +129,79 @@ button.pause{
 button:hover{
     background-color: #333;
     color: #fff;
+}
+
+
+/*end-points style*/
+.end_points{
+    position: absolute;
+    height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+    width: 25vw;
+    right: 0;
+    background-color: #fff;
+    z-index: 12;
+    top: 0;
+    bottom: 0;
+    box-shadow: 0 4px 11px rgba(0,0,0,.2);
+}
+
+.historyContainer .header{
+    display: flex;
+    width: 100%;
+    background-color: #eee;
+    padding: .3rem;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.records{
+    display: flex;
+    flex-direction: column;
+
+}
+
+.records > div{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: .4rem 1rem;
+    border-bottom: 1px solid #ddd;
+    animation: animate 1s;
+}
+
+
+@keyframes animate {
+    0%{
+        opacity: 0;
+        transform: translateY(20%);
+    }
+    100%{
+        opacity: 1;
+        transform: translateY(0%);
+    }
+
+}
+
+.records > div:hover{
+    cursor: pointer;
+    background-color: #eee;
+}
+
+.records > div > div{
+    width:20px;
+    height:20px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    background-color: #ddd;
+    padding: .4rem;
+    cursor: pointer;
+    transition: all .3s ease-in-out;
+}
+
+.records > div > div:hover{
+    background-color: #333;
+    color: #eee;
 }

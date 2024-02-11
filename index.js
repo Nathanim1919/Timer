@@ -1,4 +1,4 @@
-import {resetButton, pauseButton} from "./modules/dom.js";
+import {resetButton, pauseButton, copyIcon} from "./modules/dom.js";
 import ClockAlarm from "./modules/Alarm.js";
 import ClockTimer from "./modules/ClockTimer.js";
 
@@ -25,7 +25,16 @@ pauseButton.addEventListener('click', () => {
 
     } else {
         clock.start()
-        pauseButton.innerHTML = ' <i class="fa-solid fa-pause"></i>'
+        pauseButton.innerHTML = '<i class="fa-solid fa-pause"></i>'
         pauseButton.classList.remove('pause')
     }
 });
+
+copyIcon.addEventListener('click', ()=>{
+    copyIcon.classList.add('copied');
+    clock.saveRecord();
+    setTimeout(()=>{
+        copyIcon.classList.remove('copied')
+    }, 2000)
+
+})

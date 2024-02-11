@@ -1,4 +1,5 @@
 import {hour, minute, second} from "./dom.js";
+import Records from "./records.js";
 
 class ClockTimer {
     constructor() {
@@ -7,11 +8,16 @@ class ClockTimer {
         this.second = 0;
         this.intervalId = null;
         this.alarmInstance = null;
+        this.recordInstance = null;
         this.playTimer = false;
     }
 
     setAlarmInstance(alarmInstance) {
         this.alarmInstance = alarmInstance;
+    }
+
+    setRecordInstance(recordInstance){
+        this.recordInstance = recordInstance;
     }
 
     pause() {
@@ -52,7 +58,6 @@ class ClockTimer {
         hour.textContent = this.hour < 10 ? '0' + this.hour : this.hour;
     }
 
-
     reset() {
         clearInterval(this.intervalId);
         this.playTimer = false;
@@ -64,6 +69,11 @@ class ClockTimer {
 
         // Update the display after resetting
         this.setValues()
+    }
+
+    saveRecord(){
+        const record = new Records();
+        record.createRecord(this.hour, this.minute, this.second);
     }
 }
 
